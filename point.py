@@ -1,8 +1,18 @@
 class Point:
-    def __init__(self, x, y):
+    def __init__(self, x, y, largeur_plateau, hauteur_plateau):
         """Initialise les coordonnées du point."""
         self.x = x
         self.y = y
+        self.largeur_plateau = largeur_plateau
+        self.hauteur_plateau = hauteur_plateau
+
+    def verifier_deplacement(self, nouvelle_x, nouvelle_y):
+        if 0 <= nouvelle_x < self.largeur_plateau and O <= nouvelle_y:
+            return True
+        else:
+            print("Deplacement invalide: le personnage sort des limites du plateau.")
+            return False
+
 
     def afficherLesPoints(self):
         """Affiche les coordonnées du point."""
