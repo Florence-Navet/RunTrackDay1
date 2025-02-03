@@ -63,3 +63,16 @@ Ajoutez les méthodes suivantes :
 Créez deux cercles avec comme rayon 4 et 7. Pour chaque cercle, affichez ses
 informations, affichez sa circonférence, son diamètre et son aire.  
   
++ **Job9**  
+Créez la classe _Produit_ avec des attributs _nom_, _prixHT_, _TVA_. Implémentez la
+méthode _CalculerPrixTTC_ qui retourne le prix produit avec la TVA. Ajoutez la
+méthode _afficher_ qui liste l’ensemble des informations du produit.
+Créez _plusieurs produits_ et calculez leurs TVA.  
+Ajoutez des méthodes permettant de modifier le nom du produit et son prix.
+Ainsi que des méthodes permettant de retourner chaque information du
+produit.  
+Modifiez le nom et le prix de chaque produit et affichez en console le nouveau
+prix des produits.  
+La fonction print() ne doit pas être utilisée dans la classe Produit.
+Sur vos scripts doit apparaître l’ensemble des méthodes appelées tout au
+long des exercices.  
