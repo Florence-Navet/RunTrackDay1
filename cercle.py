@@ -24,6 +24,7 @@ class Cercle:
 #creation des cercles
 cercle1 = Cercle(4)
 cercle2 = Cercle(7)
+cercle3 = Cercle(12)
 
 #affichages des infos pour chaque cercle
 print("Informations pour le cercle 1:")
@@ -31,3 +32,6 @@ cercle1.afficherInfos()
 
 print("\nInformations pour le cercle 2:")
 cercle2.afficherInfos()
+
+print("\nInformations pour le cercle 3:")
+cercle3.afficherInfos()
