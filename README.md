@@ -21,7 +21,7 @@ valeurs initiales aux attributs _nom_ et _prenom_. Instanciez plusieurs personne
 avec les valeurs de construction de votre choix et faites appel à la méthode
 _SePresenter_ afin de vérifier que tout fonctionne correctement.  
   
-+ **Joo5**  
++ **Job5**  
 Créez une classe nommée _Point_ avec les attributs x et y correspondant aux
 coordonnées horizontales et verticales du point. Les deux attributs doivent
 être initialisés dans le constructeur.  
