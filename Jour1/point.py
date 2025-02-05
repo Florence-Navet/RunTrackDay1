@@ -7,12 +7,11 @@ class Point:
         self.hauteur_plateau = hauteur_plateau
 
     def verifier_deplacement(self, nouvelle_x, nouvelle_y):
-        if 0 <= nouvelle_x < self.largeur_plateau and O <= nouvelle_y:
+        if 0 <= nouvelle_x < self.largeur_plateau and 0 <= nouvelle_y < self.hauteur_plateau:
             return True
         else:
-            print("Deplacement invalide: le personnage sort des limites du plateau.")
+            print("Déplacement invalide: le personnage sort des limites du plateau.")
             return False
-
 
     def afficherLesPoints(self):
         """Affiche les coordonnées du point."""
@@ -29,15 +28,13 @@ class Point:
     def changeX(self, nouvelle_x):
         """Change la valeur de la coordonnée x."""
         self.x = nouvelle_x
-        # print(f"Les coordonnées x : {self.x}")
 
     def changeY(self, nouvelle_y):
         """Change la valeur de la coordonnée y."""
-        self.y = nouvelle_y 
-        # print(f"Les coordonnées y : {self.y}")
+        self.y = nouvelle_y
 
-# Création d'un point avec les coordonnées (3, 4)
-p = Point(3, 4)
+# Création d'un point avec les coordonnées (3, 4) et dimensions du plateau (10, 10)
+p = Point(3, 4, 10, 10)
 
 # Affichage des coordonnées du point
 p.afficherLesPoints()  

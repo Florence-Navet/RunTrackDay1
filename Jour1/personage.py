@@ -1,7 +1,9 @@
 class Personnage:
-    def __init__(self, x, y):
+    def __init__(self, x, y, largeur_plateau, hauteur_plateau):
         self.x = x
         self.y = y
+        self.largeur_plateau = largeur_plateau
+        self.hauteur_plateau = hauteur_plateau
 
     def gauche(self):
         if self.x > 0:
@@ -9,8 +11,8 @@ class Personnage:
         else:
             print("Déplacement invalide : bord gauche atteint.")
 
-    def droite(self, largeur_plateau):
-        if self.x < largeur_plateau - 1:
+    def droite(self):
+        if self.x < self.largeur_plateau - 1:
             self.x += 1
         else:
             print("Déplacement invalide : bord droit atteint.")
@@ -21,8 +23,8 @@ class Personnage:
         else:
             print("Déplacement invalide : bord supérieur atteint.")
 
-    def bas(self, hauteur_plateau):
-        if self.y < hauteur_plateau - 1:
+    def bas(self):
+        if self.y < self.hauteur_plateau - 1:
             self.y += 1
         else:
             print("Déplacement invalide : bord inférieur atteint.")
@@ -44,7 +46,7 @@ largeur_plateau = 5
 hauteur_plateau = 5
 
 # Création d'un personnage à la position initiale (2, 2)
-personnage = Personnage(2, 2)
+personnage = Personnage(2, 2, largeur_plateau, hauteur_plateau)
 
 # Affichage de la position initiale
 print("Position initiale du personnage :", personnage.position())
@@ -54,6 +56,8 @@ afficher_plateau(largeur_plateau, hauteur_plateau, personnage)
 personnage.gauche()
 personnage.haut()
 personnage.gauche()
+personnage.droite()
+personnage.haut()
 
 # Affichage après déplacements
 print("\nPosition après déplacements :", personnage.position())
