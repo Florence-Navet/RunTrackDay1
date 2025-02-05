@@ -1,7 +1,4 @@
-import random
-
 class Commande:
-    numero_id = random.randrange(0, 100)
 
     def __init__(self, numero_commande, catalogue_plats, taux_tva=20):
         self.__numero_commande = numero_commande
@@ -32,19 +29,11 @@ class Commande:
         else:
             print("La commande ne peut pas être terminée car elle est déjà terminée ou annulée.")
 
-    def modifier_numero_commande(self, nouvel_id):
-        self.__numero_commande += nouvel_id
-
     def calculer_total(self):
         total = 0
         for plat in self.__plats_commandes:
-            total += plat['prix']
-        return total
-
-    def calculer_tva(self):
-        total = self.calculer_total()
-        tva = total * self.__taux_tva / 100
-        return tva
+            total += plat["prix"]
+            return total
 
     def afficher_commande(self):
         print(f"Commande n°{self.__numero_commande} - Statut : {self.__statut}")
@@ -56,9 +45,19 @@ class Commande:
         print(f"TVA ({self.__taux_tva}%) : {tva}€")
         print(f"Montant TTC : {total + tva}€")
 
+
+
+    def calculer_tva(self):
+        total = self.calculer_total()
+        tva = total * self.__taux_tva / 100
+        return tva
+
     def modifier_taux_tva(self, nouveau_taux):
         self.__taux_tva = nouveau_taux
         print(f"Taux de TVA modifié à {nouveau_taux}%")
+    
+    def get_status(self):
+        return self.__statut
 
 
 def main():
@@ -70,32 +69,19 @@ def main():
         "nem": 5.0
     }
 
-    commande1 = Commande(1, catalogue_plats, taux_tva=10)
-    commande2 = Commande(2, catalogue_plats, taux_tva=20)
-    commande3 = Commande(3, catalogue_plats, taux_tva=30)
+    une_commande = Commande(123, catalogue_plats, taux_tva=30)
 
-    commande1.ajouter_plat("Pizza")
-    commande1.ajouter_plat("Ramen au poulet")
-    commande2.ajouter_plat("Tacos")
-    commande2.ajouter_plat("nem")
-    commande3.ajouter_plat("couscous royal")
+    une_commande.ajouter_plat("Pizza")
+    une_commande.ajouter_plat("Tacos")
+    print(une_commande.get_status())
+    une_commande.terminer_commande()
+    print(une_commande.get_status())
 
-    commande1.afficher_commande()
-    print("==================================")
-    commande2.afficher_commande()
 
-    commande2.annuler_commande()
-    print("==================================")
-    commande2.afficher_commande()
-    print("==================================")
+    une_commande.afficher_commande()
 
-    commande1.terminer_commande()
-    commande1.afficher_commande()
-    print("==================================")
-    commande3.afficher_commande()
-    print("==================================")
-    commande3.afficher_commande()
 
+ 
 
 if __name__ == "__main__":
     main()
