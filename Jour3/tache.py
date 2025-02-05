@@ -1,7 +1,7 @@
 class Tache:
     def __init__(self, titre, description):
         self.titre = titre
-        self.description = description  # Correction ici
+        self.description = description
         self.statut = "à faire"
 
     def __str__(self):
@@ -31,14 +31,24 @@ class ListeDeTaches:
                 print(tache)
                 print("-" * 20)
 
+    def afficher_liste_taches(self):
+        affichage_string = ""
+        for tache in self.taches:
+            if tache.statut == "à faire":
+                affichage_string += "[ ] " + tache.statut.upper() + " : " + tache.titre + " → " + tache.description + "\n"
+            else:
+                affichage_string += "[x] " + tache.statut.upper() + " : " + tache.titre + " → " + tache.description + "\n"
+        return affichage_string
+
+
 # Création de la liste de tâches
 liste = ListeDeTaches()
 
 # Création des tâches
 tache1 = Tache("Finir le Job 3", "Pour faire le Job 4")
-tache2 = Tache("Faire mon linge", "Allez au lavomatique")
+tache2 = Tache("Faire mon linge", "Aller au lavomatique")
 tache3 = Tache("Regarder un drama", "Yong Pal")
-tache4 = Tache("Appelez Kevin", "Pour ce week-end")
+tache4 = Tache("Appeler Kevin", "Pour ce week-end")
 tache5 = Tache("Soutenance", "Faire la révision")
 
 # Ajout des tâches dans la liste
@@ -51,3 +61,6 @@ liste.ajouter_tache(tache5)
 # Affichage des tâches
 print("Toutes les tâches :")
 liste.afficher_liste()
+
+# Affichage personnalisé des tâches
+print(liste.afficher_liste_taches())
