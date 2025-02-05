@@ -72,17 +72,14 @@ print("Toutes les tâches :")
 liste.afficher_liste_taches()
 print("")
 
-
-
 # Marquer la première tâche comme terminée
 tache1.marquer_comme_terminee()
+tache3.marquer_comme_terminee()
 
 # Afficher la liste des tâches
 liste.afficher_liste_taches()
 
-#appeler tache filter
-# Supposons que 'liste' soit une instance de ListeDeTaches
-
+print("")
 # Filtrer les tâches avec le statut 'à faire'
 taches_a_faire = liste.filtrer_liste('à faire')
 
@@ -91,6 +88,7 @@ print("Tâches à faire :")
 for tache in taches_a_faire:
     print(f"- {tache.titre} : {tache.description}")
 
+
 # Filtrer les tâches avec le statut 'terminée'
 taches_terminees = liste.filtrer_liste('terminée')
 
@@ -98,6 +96,7 @@ taches_terminees = liste.filtrer_liste('terminée')
 print("\nTâches terminées :")
 for tache in taches_terminees:
     print(f"- {tache.titre} : {tache.description}")
+
 
 
 
