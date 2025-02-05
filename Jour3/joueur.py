@@ -9,16 +9,21 @@ class Joueur:
                 self.cartons_rouges = cartons_rouges
 
         def maquer_but(self):
-               pass
+                self.buts_marqués += 1
 
         def recevoir_unCartonJaune(self):
-                pass
+                self.passes_decisives += 1
 
         def recevoir_unCartonRouge(self):
-                pass
+                self.cartons_rouges += 1
 
         def afficher_Statistiques(self):
-                pass
+                self.cartons_jaunes += 1
+
+        def afficher_statistiques(self):
+                print(f"Nom: {self.nom_joueur}, Numéro: {self.numero}, Position: {self.position}")
+                print(f"Buts marqués: {self.buts_marqués}, Passes décisives: {self.passes_decisives}")
+                print(f"Cartons jaunes: {self.cartons_jaunes}, Cartons rouges")
 
 
 
@@ -33,6 +38,15 @@ class equipe_de_foot:
                        print(f"Le joueur {nom_joueur} a été selectionné dans l'équipe {self.nom_equipe}")
                 else:
                         print("Ce joueur est déjà dans l'équipe !!")
+
+      
                 
 
-                
+     			# Création de joueurs
+joueur1 = Joueur("Kevin Mousquet", 9, "Gardien")
+joueur2 = Joueur("Quentin Mousquet", 7, "Attaquant")
+joueur3 = Joueur("Julien Mousquet", 5, "Défenseur")           
+joueur4 = Joueur("Tristan Mousquet", 10, "Milieu")           
+
+   # Affichage initial des statistiques des joueurs
+joueur1.afficher_statistiques_joueurs()             
