@@ -40,6 +40,13 @@ class ListeDeTaches:
             for tache in self.taches:
                 statut = "[x]" if tache.statut == "terminée" else "[ ]"
                 print(f"{statut} {tache.titre} → {tache.description}")
+    
+    def filtrer_liste(self, statut):
+        taches_filtrees = []
+        for tache in self.taches:
+             if tache.statut == statut:
+                taches_filtrees.append(tache)
+        return taches_filtrees
 
 
 
@@ -72,6 +79,25 @@ tache1.marquer_comme_terminee()
 
 # Afficher la liste des tâches
 liste.afficher_liste_taches()
+
+#appeler tache filter
+# Supposons que 'liste' soit une instance de ListeDeTaches
+
+# Filtrer les tâches avec le statut 'à faire'
+taches_a_faire = liste.filtrer_liste('à faire')
+
+# Afficher les tâches 'à faire'
+print("Tâches à faire :")
+for tache in taches_a_faire:
+    print(f"- {tache.titre} : {tache.description}")
+
+# Filtrer les tâches avec le statut 'terminée'
+taches_terminees = liste.filtrer_liste('terminée')
+
+# Afficher les tâches 'terminées'
+print("\nTâches terminées :")
+for tache in taches_terminees:
+    print(f"- {tache.titre} : {tache.description}")
 
 
 
