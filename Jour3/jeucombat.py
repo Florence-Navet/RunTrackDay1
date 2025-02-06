@@ -3,17 +3,17 @@ import random
 class Personnage:
     def __init__(self, nom, vie_joueur):
         self.nom = nom
-        self.vie_joueur = vie_joueur
+        self.vie_joueur = vie_joueur  # Définition correcte de l'attribut
 
     def attaquer(self, adversaire, degats):
         try:
-            adversaire.vie -= degats
+            adversaire.vie_joueur -= degats  # Correction ici : vie_joueur au lieu de vie
         except AttributeError:
-            print("Erreur : l'adversaire n'a pas d'attribut 'vie'.")
+            print("Erreur : l'adversaire n'a pas d'attribut 'vie_joueur'.")
             return
         print(f"{self.nom} attaque {adversaire.nom} et inflige {degats} points de dégâts.")
-        if adversaire.vie <= 0:
-            adversaire.vie = 0
+        if adversaire.vie_joueur <= 0:
+            adversaire.vie_joueur = 0
             print(f"{adversaire.nom} est vaincu !")
 
 class Jeu:
@@ -46,20 +46,20 @@ class Jeu:
             vie_ennemi = 150
 
         # Création des personnages
-        joueur = Personnage("Joueur", vie_joueur)
-        ennemi = Personnage("Ennemi", vie_ennemi)
+        joueur = Personnage("Shadow", vie_joueur)
+        ennemi = Personnage("Diabolos", vie_ennemi)
 
         print(f"\nLe combat commence entre {joueur.nom} et {ennemi.nom} !\n")
 
         # Boucle de combat
         tour = 1
-        while joueur.vie > 0 and ennemi.vie > 0:
+        while joueur.vie_joueur > 0 and ennemi.vie_joueur > 0:  # Correction ici
             print(f"--- Tour {tour} ---")
             # Le joueur attaque
             degats_joueur = random.randint(10, 20)
             joueur.attaquer(ennemi, degats_joueur)
 
-            if ennemi.vie <= 0:
+            if ennemi.vie_joueur <= 0:
                 print(f"{joueur.nom} a gagné le combat !")
                 break
 
@@ -67,12 +67,12 @@ class Jeu:
             degats_ennemi = random.randint(5, 15)
             ennemi.attaquer(joueur, degats_ennemi)
 
-            if joueur.vie <= 0:
+            if joueur.vie_joueur <= 0:
                 print(f"{ennemi.nom} a gagné le combat !")
                 break
 
-            print(f"{joueur.nom} : {joueur.vie} PV restants.")
-            print(f"{ennemi.nom} : {ennemi.vie} PV restants.\n")
+            print(f"{joueur.nom} : {joueur.vie_joueur} PV restants.")  # Correction ici
+            print(f"{ennemi.nom} : {ennemi.vie_joueur} PV restants.\n")  # Correction ici
             tour += 1
 
 def main():
