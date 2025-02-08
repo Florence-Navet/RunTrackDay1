@@ -5,7 +5,7 @@ class Carte:
         self.valeur = valeur
 
     def __str__(self):
-        return str(self.valeur)  # Retourner la valeur sous forme de chaîne
+        return str(self.valeur)  
 
 class Jeu:
     def __init__(self):
